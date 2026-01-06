@@ -1,3 +1,6 @@
 ## Automating UI testing
 
-[ ] install playwrite
+
+- [x] install playwrite
+- [x] configure docker
+- [ ] create first tests
