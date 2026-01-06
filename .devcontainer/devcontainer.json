@@ -1,0 +1,23 @@
+{
+  "name": "playwright-docker",
+  "image": "mcr.microsoft.com/playwright:v1.57.0-jammy",
+  "workspaceFolder": "/work",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/work,type=bind,consistency=cached",
+  "forwardPorts": [
+    9323
+  ],
+  "portsAttributes": {
+    "9323": {
+      "label": "Playwright Report"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-playwright.playwright",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "postCreateCommand": "test -f package.json && (npm ci || npm install) || echo 'No package.json yet - run: npm init playwright@latest --yes'"
+}
